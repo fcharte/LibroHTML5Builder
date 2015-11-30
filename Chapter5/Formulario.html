@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Aplicación HTML5 Builder">
+  <title>Interfaz de WCA</title>
+	<!--[if lt IE 9]>
+	<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+  <style>
+    
+	article { padding: 0px; border: 1px solid silver; margin-bottom: 16px; }
+	section { margin: 32px; padding: 10px; border: 1px solid silver; }
+	aside {float: right; width:200px; }	
+	details { clear: both;}
+	button { float: right; font-weight: 800; font-size: x-small; color: white; background: red; padding: 2px; margin: 0px; border: 1px solid black;}
+	input { margin: 10px; vertical-align: middle;}
+	label { vertical-align: middle; }
+	form { font-family: sans-serif;}
+	meter { margin-right: 16px;}
+	.Fecha { margin: 0px; font-weight: 800; background: #88BBCC; text-align: center;}
+	.Tarea { margin: 0px; padding: 10px; background: yellow;}
+	:invalid { background: #FF0000; }
+	:valid { background: #00FF00; }
+	input:hover { box-shadow: 5px 5px 5px gray; }
+	:focus { border: 3px solid yellow; }	
+* {
+	transition: all 2s;
+	-moz-transition: all 2s;
+	-webkit-transition: all 2s;
+	-o-transition: all 2s;
+	-ms-transition: all 2s;
+}
+@keyframes RotaEscala {
+	 from {  transform: rotate(0deg) scale(1) ; }
+	 to   {    transform: rotate(360deg) scale(2) ; }
+}
+  </style>
+  
+ </head>
+ <body>
+ 	<p style="color: yellow; background: blue; border: 1px solid black;">Texto</p>
+	<header>
+	  <h1>Agenda de tareas</h1>
+	</header>
+	<section id="Agenda">
+		<article id="Entrada1">
+			<button title="Eliminar">X</button>
+			<p class="Fecha">28 enero 2013</p>
+			<p class="Tarea" contenteditable="true">
+				<meter min="1" max="30" value="5" title="Tiempo restante 5 días">5</meter>
+			    Descripción de la tarea a realizar.
+			</p>
+		</article>
+	</section>
+
+	<section id="Formulario">
+      <h1>Crear nueva entrada en la agenda</h1>
+	  <form>	
+
+		<label for="Fecha">Fecha finalización</label>
+		<input id="Fecha" type="date" min="2013-1-1" max="2013-12-31" />
+
+		<label for="Tipo">Tipo</label>
+		<input id="Tipo" type="text" placeholder="Tipo de tarea" list="ListaTipos" pattern="Trabajo|Estudios|Doméstica" />
+		<br>
+
+		<label for="Color">Color</label>
+		<input id="Color" type="color"  value="#FFD700"/>
+
+		<label for="Duracion">Duración</label>
+		<input id="Duracion" type="range" min="1" max="30" step="1" value="1" onchange="Dias.innerHTML = Duracion.value + ' días';"/>
+		<output id="Dias" for="Duracion">1 día</output>.
+		<br />	
+
+		<textarea id="Descripcion" rows="5" cols="60">Introduzca la descripción de la tarea</textarea>
+		<input type="button" id="Crear" value="Crear la tarea" />
+		<datalist id="ListaTipos">
+			<option value="Trabajo" />
+			<option value="Estudios" />
+			<option value="Doméstica" />
+		</datalist>
+	  </form>
+	</section>
+	<details>
+		 <summary>Copyright 2013 Danysoft.</summary>
+		 <p> - by Francisco Charte. <mark>All Rights</mark> Reserved.</p>
+	</details> 
+ </body>
+</html>
