@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Aplicación HTML5 Builder">
+  <title>Interfaz de WCA</title>
+    <!--[if lt IE 9]>
+    <script src="dist/html5shiv.js"></script>
+    <![endif]-->
+ </head>
+ <body>
+    <header>
+      <h1>Agenda de tareas</h1>
+    </header>
+    <section id="Agenda">
+        <article id="Entrada1">
+            <button id="Elimina1" title="Eliminar" onclick="eliminaEntrada('#Entrada1')">X</button>
+            <h5b:Label id="Fecha1" />
+            <h5b:ProgressBar id="Tiempo1" />
+            <h5b:Label id="Descripcion1" />
+        </article>
+    </section>
+
+    <section id="Formulario">
+      <h1>Crear nueva entrada en la agenda</h1>
+      <form>
+       <div class='dato'>
+        <label for="Fecha">Fecha finalización</label>
+        <h5b:DateTimePicker id="Fecha" />
+        <p id='mensajeFecha' class='aviso'>
+          La fecha no está en el rango permitido.
+        </p>
+       </div>
+
+       <div class='dato'>
+        <label for="Tipo">Tipo</label>
+        <h5b:Edit id="Tipo" />
+        <p id='mensajeTipo' class='aviso'>
+          El tipo debe ser uno de los ofrecidos en la lista.
+        </p>
+       </div>
+
+       <div class='dato'>
+        <label for="Color">Color</label>
+        <input type="color" id="Color" />
+
+        <label for="Duracion">Duración</label>
+        <h5b:TrackBar id="Duracion" />
+        <output id="Dias" for="Duracion">1 día</output>.
+       </div>
+
+       <div class='dato'>
+        <h5b:Memo id="Descripcion" />
+       </div>
+       <h5b:Button id="Crear" />
+      </form>
+    </section>
+    <details>
+         <summary>Copyright 2013 Danysoft.</summary>
+         <p> - by Francisco Charte. <mark>All Rights</mark> Reserved.</p>
+    </details>
+ </body>
+</html>
