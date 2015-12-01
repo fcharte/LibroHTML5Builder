@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8">
+  <title>DOM</title>
+  <style>
+    * {font-family: monospace; }
+    table { font-family: monospace; text-align: left; border: 1px solid; padding: 2px; margin-left: 1em;}
+    tr:nth-child(odd) { background: #CCCCCC;}
+    td { padding: 2px; }
+    div, section { border: 1px dashed; margin: 1em; padding: 1em; }
+  </style>
+ </head>
+ <body>
+  <section id='contenido'>
+   <script>
+     $('<p >', {
+       id : 'textoDinamico',
+       css : {
+         'font-weight' : '800',
+         'color'       : 'yellow',
+         'background'  : 'blue',
+         'padding'     : '1em'
+       },
+       text : 'Un texto agregado dinámicamente',
+       mouseenter : function() {
+         $(this).css('background', 'black');
+       },
+       mouseleave : function() {
+         $(this).css('background', 'blue');
+       }
+     }).appendTo('#contenido');
+   </script>
+   <h1>Sección con contenido dinámico</h1>
+   <button id='creaContenido'>Añadir contenido</button>
+   <button id='cambiaBorde'>Cambiar el borde</button>
+   <script>
+    var nId = 1;
+    creaContenido.onclick = function() {
+     var texto = document.createTextNode('Contenido del elemento ' +
+       (document.querySelectorAll('section div').length + 1));
+     var div = document.createElement('div');
+     var divId ='Div' + nId++;
+     div.id = divId;
+     div.appendChild(texto);
+     div.onclick = function() {
+       div.innerHTML = '<p>Nuevo <i>contenido</i> del elemento</p>';
+     }
+
+     document.querySelector('#contenido').appendChild(div);
+    }
+
+    $('#cambiaBorde').click(function() {
+      $('div').css('border', '2px solid blue');
+    });
+
+   </script>
+  </section>
+  <div id="DOMnodos">
+   <h1>Enumera nodos DOM</h1>
+   <script>
+     var contenido = '';
+
+     function enumeraNodos(nodo) {
+       contenido = contenido + '<ul>';
+       for(var hijo in nodo.childNodes) {
+         contenido = contenido + '<li>' +
+           nodo.childNodes[hijo].nodeType + ': ' +
+           nodo.childNodes[hijo].nodeName + ' - ' +
+           nodo.childNodes[hijo].nodeValue + ' </li>';
+
+         if(nodo.childNodes[hijo].childNodes && nodo.childNodes[hijo].childNodes.length != 0)
+           enumeraNodos(nodo.childNodes[hijo]);
+       }
+       contenido = contenido + '</ul>';
+     }
+
+     enumeraNodos(document.documentElement);
+     document.write(contenido);
+   </script>
+  </div>
+  <div id="DOMdocument">
+  <h1>DOM - document</h1>
+  <table>
+   <tr><th>Propiedad</th><th>Contenido</th></tr>
+  <script>
+    for(var prop in document) {
+      document.write('<tr><td>' + prop + '</td><td>' +
+                     document[prop] + '</td></tr>');
+    }
+  </script>
+  </table>
+  </div>
+  <div id="trataDivs">
+   <h1>Procesa elementos DIV</h1>
+   <script>
+     var divs = document.querySelectorAll('div');
+     for(var ind = 0; ind < divs.length; ind++) {
+       var unDiv = divs[ind];
+       document.write('<li>' + unDiv.attributes['id'].value);
+     }
+     document.querySelector('#trataDivs').style.background = 'yellow';
+   </script>
+  </div>
+ </body>
+</html>
