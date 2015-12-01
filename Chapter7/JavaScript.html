@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8">
+  <title>Lenguaje JavaScript</title>
+  <style>
+    table { font-family: monospace; text-align: right; border: 1px solid; padding: 2px; margin-left: 1em;}
+    tr:nth-child(odd) { background: #CCCCCC;}
+    td { padding: 2px; }
+    div { border: 1px dashed; }
+  </style>
+ </head>
+ <body>
+  <h5b:Button id="Button1" />
+  <div id="jQuery">
+   <article>
+   <script>
+     function botonPulsado() {
+       alert('Se ha pulsado el botón');
+     }
+
+     $(document).ready(function() {
+       btnMensaje.onclick = botonPulsado;
+     });
+   </script>
+   <h1>Enlace eventos-métodos</h1>
+   <button id='btnMensaje'>Púlsame</button>
+   </article>
+   <article>
+   <h1>jQuery support</h1>
+   <table>
+   <script>
+     for(var propiedad in $.support)
+       document.write(
+         '<tr><td>' + propiedad +
+         '</td><td>' + $.support[propiedad] +
+         '</td></tr>'
+     );
+
+     $.each($.support, function(propiedad) {
+       document.write(
+         '<tr><td>' + propiedad +
+         '</td><td>' + $.support[propiedad] +
+         '</td></tr>');
+     });
+
+   </script>
+   </table>
+   </article>
+  </div>
+  <div id="aritmeticos">
+  <h1>Operaciones aritméticas</h1>
+  <ul>
+  <script>
+    var a = 47, b = 6;
+    document.write(
+       '<li>El cociente de ' + a + ' entre ' + b + ' es ' + (a / b) +
+       '<li>El resto de ' + a + ' entre ' + b + ' es ' + (a % b) +
+       '<li>Post-incremento ' + (a++) +
+       '<li>Pre-incremento ' + (++b)
+    );
+  </script>
+  </ul>
+  </div>
+  <div id="relacionales">
+  <h1>Operaciones relacionales</h1>
+  <ul>
+  <script>
+    var a = 47, b = 6, c = '6';
+    document.write(
+      '<li>' + a + ' < ' + b + ' es ' + ((a<b)*5) +
+      '<li>' + a + ' > ' + b + ' es ' + ((a>b)*5) +
+      '<li>' + b + ' == ' + c + ' es ' + (b==c) +
+      '<li>' + b + ' === ' + c + ' es ' + (b===c)
+    );
+  </script>
+  </ul>
+  </div>
+  <div id="logicos">
+  <h1>Operaciones lógicas</h1>
+  <ul>
+  <script>
+    var a = true, b = true, c = false;
+    document.write(
+     '<li>' + a + ' Y ' + b + ' es ' + (a && b) +
+     '<li>' + a + ' Y ' + c + ' es ' + (a && c) +
+     '<li>' + a + ' O ' + b + ' es ' + (a || b) +
+     '<li>' + a + ' O ' + c + ' es ' + (a || c) +
+     '<li>NO ' + a + ' es ' + (!a) +
+     ('<li>NO ' + c + ' es ' + (!c)).toUpperCase()
+    );
+  </script>
+  </ul>
+  </div>
+  <div id="vectores">
+  <h1>Vectores</h1>
+  <ul>
+  <script>
+    var vector = [166.386, 'Un euro', 1, true];
+    document.write(
+      '<li>Elementos en vector -> ' + vector.length +
+      '<li>vector[1] -> ' + vector[1] +
+      '<li>vector[5] -> ' + vector[5] +
+      '<li>vector -> ' + vector
+    );
+    vector[5] = new Object();
+    document.write('<li>vector[5] -> ' + vector[5]);
+  </script>
+  </ul>
+  </div>
+  <div id="objetos">
+  <h1>Objetos</h1>
+  <ul>
+  <script>
+    var tarea = {
+      fecha: '25/Feb/2012',
+      dias: 23,
+      completada: false,
+      descripcion: 'Lo que tengamos que hacer',
+      muestra: function() {
+         return '<p>' + this.descripcion + '</p>' +
+                '<p>A finalizar el ' + this.fecha;
+         }
+    };
+
+    document.write(tarea.muestra());
+    for(var propiedad in tarea)
+      document.write(
+        '<li>' + propiedad + ': ' + tarea[propiedad]);
+
+    var tarea = new Object();
+    tarea.fecha = '25/Feb/2012';
+    tarea.dias = 23;
+    tarea.completada = false;
+    tarea.descripcion = 'Lo que tengamos que hacer';
+
+    document.write(
+      '<li>Fecha: ' + tarea.fecha +
+      '<li>Días: ' + tarea.dias +
+      '<li>Completada: ' + tarea.completada +
+      '<li>Descripción: ' + tarea.descripcion
+    );
+
+    var Tarea = function() {
+      this.fecha = (new Date()).toLocaleDateString();
+      this.dias  = 1;
+      this.completada = false;
+      this.descripcion =
+        arguments.length > 0 ?
+          arguments[0] : "Descripción de tarea";
+      this.muestra = function() {
+         return '<p>' + this.descripcion + '</p>' +
+                '<p>A finalizar el ' + this.fecha;
+         }
+    }
+
+    var tarea1 = new Tarea();
+    var tarea2 = new Tarea('Completar el capítulo');
+    document.write('<p>' + (new Date()).prototype);
+    document.write('<p>' + typeof new Date());
+
+  </script>
+  </ul>
+  </div>
+  <div id="condicional">
+  <h1>Condicionales</h1>
+  <script>
+    var año = 2013;
+    if((año % 4 == 0) &&
+       ((año % 100 != 0) || (año % 400 == 0)))
+       document.write(año + ' es bisiesto');
+    else
+       document.write(año + ' no es bisiesto');
+  </script>
+  </div>
+  <div id="repeticion">
+  <h1>Estructura de repetición</h1>
+  <table>
+  <script>
+    for(fila = 1; fila <= 10; fila++) {
+      document.write('<tr>');
+      for(col = 1; col <= 10; col++) {
+       document.write('<td>' + fila*col + '</td>');
+      }
+      document.write('</tr>');
+    }
+  </script>
+  </table>
+  </div>
+  <div id="funciones">
+  <h1>Funciones</h1>
+  <script>
+    function pow(base, exponente) {
+      valor = 1;
+      while(exponente--)
+        valor *= base;
+
+      return valor;
+    }
+
+    function enumera() {
+      document.write(
+       '<p>Se han recibido ' + arguments.length +
+       ' parámetros:<ul>');
+
+      for(ind in arguments)
+        document.write('<li>' + arguments[ind]);
+
+      document.write('</ul>');
+    }
+
+    enumera(56, 3.1415927, 'febrero');
+    enumera(false, pow(5,4), [2,4,6], {});
+
+    var calculos = [
+     function(a) { return a*a; },
+     function(a) { return a*a*a; }
+    ];
+
+    document.write(calculos[1](5));
+
+    function print(fn) {
+      document.write(this);
+      document.write('<ul>');
+      for(i=1; i<10; i++)
+        document.write('<li>' + fn(i));
+      document.write('</ul>');
+    }
+
+    print(function(a) { return a*a; });
+    print(calculos[1]);
+
+  </script>
+  </table>
+  </div>
+ </body>
+</html>
