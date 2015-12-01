@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8">
+  <meta name="description" content="Elementos flotantes">
+  <title>Interfaz de WCA</title>
+	<!--[if lt IE 9]>
+	<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+  <style>
+	article, header, footer { 
+		padding: 10px; 
+		border: 1px solid silver; 
+		margin: 10px; 
+	}
+	
+	article { 
+		background: cyan; 
+		width: 240px; 
+		#float: left; 
+	}
+		
+	article:first-child { 
+		#position: fixed; 
+		#top: 24px; 
+		right: 0px; 
+		width: 120px; 
+		background: yellow; 
+		margin: 0px; 
+	}
+		
+	footer { clear: both; }
+  </style>
+ </head>
+ <body>
+  <section>
+   <article>
+    <h1>Nota</h1>
+	<p>Elemento con posición absoluta</p>
+   </article>
+   <header>
+    <h1>Elementos flotantes y fijos</h1>
+   </header>
+   <article>
+    <h1>Artículo 1</h1>
+	<p>Los elementos article son flotantes y van disponiéndose de izquierda a derecha</p>
+   </article>
+   <article>
+    <h1>Artículo 2</h1>
+	<p>Segundo artículo floante dentro de la sección en que está contenido</p>
+   </article>
+   <footer>
+    <p>El pie debe aparecer debajo de los artículos, no a su derecha</p>
+   </footer>
+  </section>
+ </body>
+</html>
