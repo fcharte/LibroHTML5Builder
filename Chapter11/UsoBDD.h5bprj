@@ -1,0 +1,14 @@
+[PHPProject]
+Version=5
+
+[Files]
+Item1=UsoBDD.php
+Item2=Consulta.sql
+Item3=dmBiblioteca.php
+
+[MainScript]
+Script=
+
+[Parameters]
+value=
+
