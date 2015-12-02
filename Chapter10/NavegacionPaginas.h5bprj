@@ -1,0 +1,13 @@
+[PHPProject]
+Version=5
+
+[Files]
+Item1=PagLista.php
+Item2=PagNueva.php
+
+[MainScript]
+Script=
+
+[Parameters]
+value=
+
