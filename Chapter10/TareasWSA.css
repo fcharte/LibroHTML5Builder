@@ -1,0 +1,89 @@
+article {
+    padding: 0px;
+    border: 1px solid silver;
+    margin-bottom: 16px;
+}
+
+section {
+    margin: 32px;
+    padding: 10px;
+    border: 1px solid silver;
+}
+
+aside {
+    float: right;
+    width:200px;
+}
+
+details {
+    clear: both;
+}
+
+button {
+    float: right;
+    font-weight: 800;
+    font-size: x-small;
+    color: white;
+    background: red;
+    padding: 2px;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+input {
+    margin: 10px;
+    vertical-align: middle;
+}
+
+label {
+    vertical-align: middle;
+}
+
+form {
+    font-family: sans-serif;
+}
+
+meter {
+    margin-right: 16px;
+    width: 200px;
+}
+
+.Fecha {
+    margin: 0px;
+    font-weight: 800;
+    background: #88BBCC;
+    text-align: center;
+    width: 100%;
+}
+
+.Tarea {
+    margin: 0px;
+    padding: 10px;
+    background: yellow;
+}
+
+.aviso {
+    float: right;
+    color: red;
+    visibility: hidden;
+ }
+
+.dato {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+:invalid { background: #FF0000;}
+:valid { background: #00FF00; }
+input:hover {
+	box-shadow: 10px 10px 5px #888888;
+}
+input[type=button]:hover { -webkit-animation: Animation1_Animation1_cssAnimation 1.5s 1 ease; }
+* {
+	transition: all 2s;
+	-moz-transition: all 2s;
+	-webkit-transition: all 2s;
+	-o-transition: all 2s;
+	-ms-transition: all 2s;
+}
+:focus { border: 3px solid yellow; }
