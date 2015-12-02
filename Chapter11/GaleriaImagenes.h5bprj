@@ -1,0 +1,13 @@
+[PHPProject]
+Version=5
+
+[Files]
+Item1=GaleriaImagenes.php
+Item2=Galeria.css
+
+[MainScript]
+Script=
+
+[Parameters]
+value=
+
