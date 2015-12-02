@@ -1,0 +1,14 @@
+[PHPProject]
+Version=5
+
+[Files]
+Item1=AppMobile.js
+Item2=Pendientes.js
+Item3=TermaMovil.css
+
+[MainScript]
+Script=
+
+[Parameters]
+value=
+
